@@ -1,0 +1,379 @@
+/* --- Basic Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #333;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* --- Header & Navigation (แยกชั้นไม่ทับแบนเนอร์) --- */
+header {
+  width: 100%;
+  background-color: #ffffff; /* พื้นหลังสีขาวเพื่อให้เมนูอ่านง่าย */
+  border-bottom: 1px solid #eee; /* เพิ่มเส้นขอบบางๆ ให้ดูสะอาดตา */
+}
+
+#headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#logo img {
+  width: 260px;
+  height: auto;
+  display: block;
+}
+
+nav ul {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* ปรับสีตัวอักษรเมนูเป็นสีเข้มเพื่อให้ตัดกับพื้นหลังขาว */
+nav ul li a {
+  color: #333333; 
+  font-size: 18px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #dcb12f; /* สีทองเมื่อเมาส์ชี้ */
+}
+
+/* ปุ่ม Reservation */
+.button {
+  background-color: #dcb12f;
+  color: white !important;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #b89326;
+}
+
+/* --- Banner Section (ต่อลงมาด้านล่างเมนู) --- */
+#main-banner {
+  width: 100%;
+  position: relative; /* เพื่อให้ carousel-caption ลอยทับบนรูปได้ */
+  line-height: 0;     /* ลบช่องว่างใต้รูปภาพ */
+}
+
+#main-banner img {
+  width: 100%;
+  height: 400px;      /* ปรับความสูงแบนเนอร์ตามต้องการ */
+  object-fit: cover;
+  display: block;
+}
+
+/* สไตล์ h1 ในแบนเนอร์ (ขาว / หนา / 40px) */
+.carousel-caption {
+  position: absolute;
+  bottom: 40px;       /* ปรับระยะห่างจากขอบล่างของรูป */
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.carousel-caption h1 {
+  color: white;       /* สีข้อความเป็นสีขาว */
+  font-weight: bold;  /* ตัวอักษรเป็นตัวหนา */
+  font-size: 40px;    /* ขนาดตัวอักษร 40 พิกเซล */
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* เพิ่มเงาให้ตัวหนังสืออ่านง่ายบนรูป */
+  margin: 0;
+}
+
+/* --- Contents Layout --- */
+#contents {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: flex;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+#menu {
+  flex: 1;
+}
+
+#menu h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #5a412d;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+#menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#menu li {
+  width: calc(33.33% - 14px);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* ค้นหาหรือเพิ่มสไตล์สำหรับรูปภาพในส่วน menu */
+#menu img {
+  width: 100%;             /* ให้ความกว้างขยายเต็มกรอบ */
+  height: 200px;           /* กำหนดความสูงที่แน่นอน (คุณสามารถเปลี่ยนตัวเลขได้) */
+  object-fit: cover;       /* ขยายเต็มพื้นที่โดยรักษา比例 บางส่วนของรูปอาจถูกตัดออก */
+  border-radius: 8px;      /* ใส่ขอบโค้งเหมือนเดิม */
+  display: block;          /* ป้องกันช่องว่างด้านล่างรูป */
+}
+
+#menu figcaption {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#menu li:hover {
+  transform: translateY(-5px);
+}
+
+#menu .new::before {
+  content: "NEW";
+  color: #fff;
+  background-color: #B01717;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  z-index: 1;
+}
+
+/* --- Information Section (Aside) --- */
+#info {
+  width: 300px;
+  background-color: #f8f3f0;
+  padding: 25px;
+  border-radius: 10px;
+  align-self: flex-start;
+}
+
+#info h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+#info li {
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #d0baa8;
+  padding-bottom: 10px;
+}
+
+#info span {
+  display: block;
+  font-size: 13px;
+  color: #888;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: #5a412d;
+  color: white;
+  padding: 40px 0;
+  margin-top: 60px;
+}
+
+#footerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+#footerInner ul {
+  display: flex;
+  gap: 20px;
+}
+
+#footerInner a {
+  color: white;
+  transition: color 0.3s;
+}
+
+#footerInner a:hover {
+  color: #dcb12f;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 992px) {
+  #contents {
+    flex-direction: column;
+  }
+  #info {
+    width: 100%;
+  }
+  #menu li {
+    width: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #headerInner {
+    flex-direction: column;
+    gap: 20px;
+  }
+  #menu li {
+    width: 100%;
+  }
+  #footerInner {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .carousel-caption h1 {
+    font-size: 28px; /* ปรับขนาดตัวอักษรบนมือถือให้เล็กลงหน่อย */
+  }
+}
+
+/* --- Basic Reset --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto Condensed', sans-serif; color: #333; }
+li { list-style-type: none; }
+a { text-decoration: none; }
+
+/* --- Header --- */
+header { width: 100%; background-color: #ffffff; }
+#headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+nav ul { display: flex; gap: 25px; align-items: center; }
+nav ul li a { color: #333; font-weight: bold; font-size: 18px; }
+.button {
+  background-color: #dcb12f;
+  color: white !important;
+  padding: 10px 25px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+/* --- Bootstrap Carousel Custom --- */
+#mySlider { width: 100%; overflow: hidden; }
+.carousel-item img {
+  height: 400px; /* จำกัดความสูงไม่ให้ใหญ่เกินไป */
+  object-fit: cover;
+}
+.carousel-caption {
+  bottom: 10%; /* ตำแหน่งข้อความ */
+}
+.carousel-caption h1 {
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 40px !important;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* --- Layout --- */
+#contents {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: flex;
+  gap: 40px;
+  padding: 0 20px;
+}
+#menu { flex: 1; }
+#menu h2 { font-size: 28px; margin-bottom: 30px; border-bottom: 2px solid #5a412d; display: inline-block; }
+#menu ul { display: flex; flex-wrap: wrap; gap: 20px; }
+#menu li { width: calc(33.33% - 14px); text-align: center; position: relative; }
+#menu img { width: 100%; border-radius: 8px; }
+#menu .new::before {
+  content: "NEW"; color: #fff; background-color: #B01717;
+  padding: 5px 10px; position: absolute; top: 10px; left: 10px; font-size: 12px; border-radius: 3px;
+}
+
+#info { width: 300px; background-color: #f8f3f0; padding: 25px; border-radius: 10px; }
+
+/* --- Footer --- */
+footer { background-color: #5a412d; color: white; padding: 40px 0; }
+#footerInner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; padding: 0 20px; }
+#footerInner ul { display: flex; gap: 20px; }
+#footerInner a { color: white; }
+
+/* Responsive */
+@media (max-width: 992px) {
+  #contents { flex-direction: column; }
+  #info { width: 100%; }
+  #menu li { width: calc(50% - 10px); }
+}
+
+/* --- Header Custom --- */
+.navbar {
+  padding: 15px 0;
+  background-color: #fff !important;
+}
+
+/* ปรับสีเมนู */
+.nav-link {
+  color: #333 !important;
+  font-weight: bold;
+  padding: 10px 15px !important;
+}
+
+/* ปุ่มจอง Reservation */
+.button-res {
+  background-color: #dcb12f !important;
+  color: white !important;
+  border-radius: 5px;
+  padding: 8px 20px !important;
+  text-align: center;
+}
+
+/* --- จุดสำคัญ: ปรับแต่งเมื่อเป็นมือถือ --- */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: #fff;
+    padding: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+  }
+  .nav-item {
+    padding: 5px 0;
+  }
+  .button-res {
+    display: block; /* ให้ปุ่มจองเต็มความกว้างในมือถือ */
+    width: 100%;
+  }
+}
+
+/* รูปในเมนูต้องเท่ากัน */
+#menu img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
